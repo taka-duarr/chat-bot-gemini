@@ -49,7 +49,7 @@ async function sendMessage() {
             const similarMessage = document.createElement('div');
             similarMessage.className = 'chat-message bot flex justify-start mb-4';
             const similarContent = document.createElement('div');
-            similarContent.className = 'bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-lg';
+            similarContent.className = 'bg-gray-200 text-gray-800 p-3 rounded-lg max-w- shadow-lg';
             similarContent.textContent = `Mungkin Maksud Anda: "${data.similar}"`;
             similarMessage.appendChild(similarContent);
             chatBox.appendChild(similarMessage);
@@ -141,11 +141,15 @@ function displayBotMessage(message) {
     const botMessage = document.createElement('div');
     botMessage.className = 'chat-message bot flex justify-start mb-4';
     const botContent = document.createElement('div');
-    botContent.className = 'bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-lg';
-    botContent.textContent = message;
+    botContent.className = 'bg-gray-200 text-gray-800 p-3 rounded-lg max-w-full shadow-lg whitespace-pre-wrap';
+    
+    // Proses teks sebelum ditampilkan (konversi markdown-like ke HTML)
+    botContent.innerHTML = formatBotText(message);
+    
     botMessage.appendChild(botContent);
     chatBox.appendChild(botMessage);
 }
+
 
 async function handleUserResponse(input, isYes) {
     const chatBox = document.getElementById('chat-box');
@@ -188,10 +192,10 @@ function addMessage(content, sender) {
 
     if (sender === "user") {
         messageDiv.classList.add("justify-end");
-        messageDiv.innerHTML = `<div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow-lg">${content}</div>`;
+        messageDiv.innerHTML = `<div class="bg-blue-500 text-white p-3 rounded-lg max-w-full shadow-lg">${content}</div>`;
     } else if (sender === "bot") {
         messageDiv.classList.add("justify-start");
-        messageDiv.innerHTML = `<div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-xs shadow-lg">${content}</div>`;
+        messageDiv.innerHTML = `<div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-full shadow-lg">${content}</div>`;
     } else if (sender === "confirm") {
         messageDiv.classList.add("justify-start");
         messageDiv.innerHTML = `
@@ -229,4 +233,20 @@ function handleConfirmation(answer) {
         addMessage("Baik, silakan berikan jawaban yang benar untuk saya pelajari.", "bot");
     }
     pendingAnswer = null; // Reset jawaban pending
+}
+
+function formatBotText(text) {
+    // Blok kode (multiline)
+    text = text.replace(/```([\s\S]*?)```/g, '<pre class="bg-gray-800 text-white p-2 rounded overflow-auto"><code>$1</code></pre>');
+    
+    // Inline code
+    text = text.replace(/`([^`]+)`/g, '<code class="bg-gray-300 px-1 rounded">$1</code>');
+
+    // Bold **text**
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+    // Italic *text*
+    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    return text;
 }
