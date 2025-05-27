@@ -1,0 +1,104 @@
+{
+  "percakapan": [
+    {
+      "input": "Halo, apa kabar?",
+      "respon": "Saya baik, terima kasih! Ada yang bisa saya bantu?",
+      "kategori": "sapaan"
+    },
+    {
+      "input": "Bagaimana cuaca hari ini?",
+      "respon": "Saat ini, saya tidak memiliki akses langsung ke cuaca terkini, tetapi saya bisa memberikan informasi umum.",
+      "kategori": "cuaca"
+    },
+    {
+      "input": "Apa itu AI?",
+      "respon": "AI, atau Kecerdasan Buatan, adalah bidang ilmu komputer yang bertujuan untuk membuat mesin yang mampu berperilaku cerdas.",
+      "kategori": "pengetahuan"
+    },
+    {
+      "input": "Halo",
+      "respon": "Hai Tuan",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "siapa itu firman",
+      "respon": "Firman adalah teman saya",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "hai",
+      "respon": "halo tuan",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "siapa firman?",
+      "respon": "Firman adalah teman saya",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "apakah anda tahu firman?",
+      "respon": "firman adalah teman saya",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "apakah anda tahu kapan indonesia merdeka?",
+      "respon": "indonesia merdeka tahun 1945",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "apakah anda tahu brillian?",
+      "respon": "Orang tampan",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "apakah anda tahu siapa itu soekarno?",
+      "respon": "Soekarno adalah presiden pertama Indonesia",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "apakah anda tahu siapa itu firman?",
+      "respon": "firman adalah teman anda",
+      "kategori": "user_defined"
+    },
+    {
+      "input": "tahu irfan?",
+      "respon": "irfan adalah teman anda"
+    },
+    {
+      "input": "tahu kurumi?",
+      "respon": "kurumi adalah waifu anda tuan"
+    },
+    {
+      "input": "tahu firman?",
+      "respon": "Firman adalah teman anda tuan"
+    },
+    {
+      "input": "apakah anda tahu habib?",
+      "respon": "Habib adalah teman anda, yang suka tobrut tuan"
+    },
+    {
+      "input": "tahu almahyra?",
+      "respon": "Almahyra adalah adik anda tuan"
+    },
+    {
+      "input": "tahu rizky?",
+      "respon": "Rizky adalah budak anda tuan"
+    },
+    {
+      "input": "apakah kamu tahu meguri fujiha?",
+      "respon": "Dia adalah bintang bokep tuan"
+    },
+    {
+      "input": "siapa presiden pertama indonesia",
+      "respon": "Ir. Soekarno"
+    },
+    {
+      "input": "mau kue?",
+      "respon": "mauuu"
+    },
+    {
+      "input": "kuentod",
+      "respon": "mau dong><"
+    }
+  ]
+}

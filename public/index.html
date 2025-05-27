@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Pembelajaran</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
+        <h1 class="text-2xl font-semibold text-center text-blue-500 mb-4">Mai Chan</h1>
+        <div id="chat-box" class="overflow-y-auto h-96 p-4 bg-gray-50 border border-gray-300 rounded-lg mb-4 space-y-2">
+            <div class="chat-message bot">
+                <div class="message-content bg-blue-200 text-blue-800 px-4 py-2 rounded-lg">
+                    Halo! Ada yang bisa saya bantu?
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-2">
+            <input type="text" id="user-input" placeholder="Ketik pesan..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+            <button onclick="sendMessage()" id="submitBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Kirim</button>
+        </div>
+    </div>
+
+    <div id="live2d-widget"></div>
+
+    <script src="live2d/script/L2Dwidget.min.js" async></script>
+    <script>
+        window.addEventListener("load", function() {
+            // Pastikan script sudah di-load
+            if (typeof L2Dwidget !== "undefined") {
+                L2Dwidget.init({
+                    model: {
+                        jsonPath: "/live2d/model/sagiri/model.json",
+                        scale: 0.8
+                    },
+                    display: {
+                        position: "right",
+                        width: 480,
+                        height: 720,
+                        hOffset: -50,
+                        vOffset: -80,
+                    },
+                    mobile: {
+                        show: false,
+                    },
+                });
+            } else {
+                console.warn("L2Dwidget script is not loaded.");
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

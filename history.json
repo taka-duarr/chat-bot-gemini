@@ -1,0 +1,32 @@
+{
+  "history": [
+    {
+      "input": "berapa hasil dari 10 + 10",
+      "response": "Hasil dari 10 + 10 adalah 20.\n"
+    },
+    {
+      "input": "siapa namamu",
+      "response": "Saya adalah model bahasa besar, yang dilatih oleh Google.\n"
+    },
+    {
+      "input": "buatkan saya program crud dengan c++",
+      "response": "Berikut adalah contoh program CRUD sederhana menggunakan C++ dengan file eksternal untuk penyimpanan data.  Program ini menggunakan file teks untuk menyimpan data, yang bukanlah solusi ideal untuk aplikasi yang lebih besar atau yang membutuhkan kinerja tinggi. Untuk aplikasi yang lebih kompleks, pertimbangkan penggunaan database seperti SQLite atau PostgreSQL.\n\n**File: `main.cpp`**\n\n```cpp\n#include <iostream>\n#include <fstream>\n#include <string>\n#include <vector>\n\nusing namespace std;\n\n// Struktur data untuk mewakili satu record\nstruct Data {\n    int id;\n    string name;\n    string description;\n};\n\n// Fungsi untuk menampilkan semua data\nvoid displayData(const vector<Data>& data) {\n    if (data.empty()) {\n        cout << \"Tidak ada data.\" << endl;\n        return;\n    }\n    cout << \"ID\\tNama\\t\\tDeskripsi\" << endl;\n    cout << \"---------------------------------\" << endl;\n    for (const auto& item : data) {\n        cout << item.id << \"\\t\" << item.name << \"\\t\\t\" << item.description << endl;\n    }\n}\n\n// Fungsi untuk menambahkan data baru\nvoid addData(vector<Data>& data) {\n    Data newData;\n    cout << \"Masukkan ID: \";\n    cin >> newData.id;\n    cin.ignore(); // membersihkan buffer\n    cout << \"Masukkan Nama: \";\n    getline(cin, newData.name);\n    cout << \"Masukkan Deskripsi: \";\n    getline(cin, newData.description);\n    data.push_back(newData);\n    cout << \"Data berhasil ditambahkan.\" << endl;\n}\n\n\n// Fungsi untuk mencari data berdasarkan ID\nData* findData(vector<Data>& data, int id) {\n    for (auto& item : data) {\n        if (item.id == id) {\n            return &item;\n        }\n    }\n    return nullptr;\n}\n\n\n// Fungsi untuk memperbarui data\nvoid updateData(vector<Data>& data) {\n    int id;\n    cout << \"Masukkan ID data yang akan diupdate: \";\n    cin >> id;\n    Data* item = findData(data, id);\n    if (item == nullptr) {\n        cout << \"Data dengan ID \" << id << \" tidak ditemukan.\" << endl;\n        return;\n    }\n    cin.ignore(); // membersihkan buffer\n    cout << \"Masukkan Nama baru: \";\n    getline(cin, item->name);\n    cout << \"Masukkan Deskripsi baru: \";\n    getline(cin, item->description);\n    cout << \"Data berhasil diupdate.\" << endl;\n}\n\n// Fungsi untuk menghapus data\nvoid deleteData(vector<Data>& data) {\n    int id;\n    cout << \"Masukkan ID data yang akan dihapus: \";\n    cin >> id;\n    auto it = find_if(data.begin(), data.end(), [&](const Data& item) { return item.id == id; });\n    if (it == data.end()) {\n        cout << \"Data dengan ID \" << id << \" tidak ditemukan.\" << endl;\n        return;\n    }\n    data.erase(it);\n    cout << \"Data berhasil dihapus.\" << endl;\n}\n\n\n// Fungsi untuk menyimpan data ke file\nvoid saveData(const vector<Data>& data, const string& filename = \"data.txt\") {\n    ofstream file(filename);\n    if (file.is_open()) {\n        for (const auto& item : data) {\n            file << item.id << \"\\t\" << item.name << \"\\t\" << item.description << endl;\n        }\n        file.close();\n    } else {\n        cerr << \"Gagal membuka file untuk menyimpan data.\" << endl;\n    }\n}\n\n\n// Fungsi untuk memuat data dari file\nvector<Data> loadData(const string& filename = \"data.txt\") {\n    vector<Data> data;\n    ifstream file(filename);\n    if (file.is_open()) {\n        Data item;\n        while (file >> item.id >> ws >> item.name >> ws >> item.description) {\n            data.push_back(item);\n        }\n        file.close();\n    } else {\n        cerr << \"Gagal membuka file untuk memuat data.\" << endl;\n    }\n    return data;\n}\n\nint main() {\n    vector<Data> data = loadData();\n\n    int pilihan;\n    do {\n        cout << \"\\nMenu:\\n\";\n        cout << \"1. Tampilkan Data\\n\";\n        cout << \"2. Tambah Data\\n\";\n        cout << \"3. Update Data\\n\";\n        cout << \"4. Hapus Data\\n\";\n        cout << \"0. Keluar\\n\";\n        cout << \"Pilihan: \";\n        cin >> pilihan;\n\n        switch (pilihan) {\n            case 1: displayData(data); break;\n            case 2: addData(data); break;\n            case 3: updateData(data); break;\n            case 4: deleteData(data); break;\n            case 0: cout << \"Program selesai.\\n\"; break;\n            default: cout << \"Pilihan tidak valid.\\n\";\n        }\n    } while (pilihan != 0);\n\n    saveData(data);\n    return 0;\n}\n```\n\nUntuk mengkompilasi dan menjalankan kode ini, simpan kode di atas sebagai `main.cpp`, lalu kompilasi menggunakan compiler C++ (seperti g++):\n\n```bash\ng++ main.cpp -o crud\n./crud\n```\n\nIngatlah untuk menangani potensi error dengan lebih baik dalam aplikasi yang sebenarnya (misalnya, validasi input, penanganan kesalahan file).  Ini adalah contoh yang sangat dasar dan perlu ditingkatkan untuk aplikasi yang lebih robust.\n"
+    },
+    {
+      "input": "berapa akar dari 100",
+      "response": "Akar kuadrat dari 100 adalah 10.\n"
+    },
+    {
+      "input": "siapa presiden ke 8 indonesia",
+      "response": "Presiden ke-8 Indonesia adalah **Susilo Bambang Yudhoyono**.\n"
+    },
+    {
+      "input": "siapa presiden ke 7 indonesia",
+      "response": "Presiden ke-7 Indonesia adalah **Bacharuddin Jusuf Habibie**.\n"
+    },
+    {
+      "input": "pengetahuanmu apakah sampai tahun 2024?",
+      "response": "Pengetahuan saya mencakup informasi hingga September 2021.  Meskipun saya terus diperbarui, pengetahuan saya tidak selalu mencakup peristiwa terkini secara real-time.  Jadi, untuk informasi terbaru tentang tahun 2024 dan seterusnya, saya sarankan Anda merujuk pada sumber berita dan informasi terpercaya lainnya.\n"
+    }
+  ]
+}
